@@ -1,0 +1,1 @@
+$(".listTable").dataTable();

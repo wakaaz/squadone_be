@@ -1,0 +1,333 @@
+.ProList-div thead, .ProList-div .dataTables_length, .ProList-div .dataTables_length, .ProList-div .dataTables_info, .ProList-div .dataTables_filter{display: none}
+.ProList-div table.dataTable{margin: 0!important}
+.retailerTable .dataTable td, .retailerTable .dataTable th {
+	padding: 8px
+}
+.FT-date input {
+	padding: 0;
+	height: 18px;
+	font-size: 14px;
+	letter-spacing: 2px;
+	border: none;
+	margin-top: -3px
+}
+.FT-date .col-4 {
+	margin-top: -7px
+}
+.addPR-head {
+	font-size: 16px;
+	padding: 15px 15px 15px 20px !important
+}
+.APS-list {
+	width: 230px;
+	position: relative;
+	float: right;
+	padding-right: 15px;
+}
+.APS-list input {
+	height: 32px;
+	border: solid 1px #eae9e9;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	padding-left: 30px;
+	font-size: 13px;
+	letter-spacing: 1px;
+}
+.APS-list .fa {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	color: #b5b5b5;
+}
+._PR_filter {
+	width: 245px;
+	float: right;
+	padding-right: 0px;
+}
+.w160px{width: 160px}
+._PR_filter .custom-select-sm {
+	border-radius: 0;
+	border: solid 1px #eae9e9;
+}
+._PR_filter .select2-container .select2-selection--single {
+	background-color: #fff;
+	 border-color: #e4e4e4;
+	 font-size: 14px;
+	 border-radius: 0;
+ }
+
+
+.CatalogueAss {
+	padding: 15px 15px
+}
+.CatalogueAss .custom-radio {
+	font-size: 13px;
+	line-height: 25px
+}
+.CatalogueAss .form-s2 .select2-container .select2-selection--single {
+	background-color: #fff;
+	border-color: #eae9e9
+}
+._selectProList {
+	background: #ebebeb;
+	width: 100%;
+	height: 646px;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	background-color: #f6f6f6;
+	border-left: solid 1px #e4e4e4;
+	border-bottom: solid 1px #e4e4e4;
+}
+.ProListHeight {
+	height: 875px
+}
+._selectProList .header {
+	padding: 15px 20px !important;
+}
+._selectProList .header .add_button {
+	top: 0;
+	padding: 4px 10px 3px 10px;
+	right: 0
+}
+._selectProList .APS-list {
+	padding: 0;
+	width: 100%;
+	margin-top: 10px
+}
+.card .header h2:before {
+	top: 0
+}
+.ProListHD {
+	width: inherit;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 10px;
+	padding-top: 15px;
+	border-bottom: solid 1px #e5e5e5;
+	background: linear-gradient(0deg, #f8f8f8 0%, #ffffff 50%);
+}
+.ProList-div {
+	flex: 1;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 10px;
+	font-size: 14px
+}
+.switch-sm{
+	line-height: 19px;
+	padding-top: 5px; width:102px
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 26px;
+	height: 17px;
+	margin-bottom: 0;
+	margin-right: 5px
+}
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0
+}
+.switch .slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s
+}
+.switch .slider:before {
+	position: absolute;
+	content: "";
+	height: 11px;
+	width: 11px;
+	left: 3px;
+	bottom: 3px;
+	background-color: #fff;
+	-webkit-transition: .4s;
+	transition: .4s
+}
+.switch input:checked + .slider {
+	background-color: #0038ba
+}
+input:focus + .slider {
+	box-shadow: 0 0 1px #0038ba
+}
+.switch input:checked + .slider:before {
+	-webkit-transform: translateX(10px);
+	-ms-transform: translateX(10px);
+	transform: translateX(10px)
+}
+.switch .slider.round {
+	border-radius: 26px
+}
+.switch .slider.round:before {
+	border-radius: 50%
+}
+.ProList-div table, .ProList-div td, .ProList-div tr {
+	border: none
+}
+.ProList-div td {
+	border-bottom: solid 1px #e2e2e2;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 12px
+}
+.ProList-div .RLNO {
+	background-color: #e2e2e2;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	font-size: 18px;
+	text-align: center;
+	font-family: 'Rationale', sans-serif;
+	line-height: 1;
+	padding-top: 5px;
+	margin-left: 5px; position: relative
+}
+.ProList-div tr:HOVER .RLNO::after {
+	content: '';
+	position: absolute;
+	top: -5px;
+	left: -10px; height: 43px; width: 43px;
+	background-image: url("../images/sort_arrow-drag.svg"); background-repeat:no-repeat; background-position: center center;
+
+}
+
+
+
+.AdditemName{width: 155px; line-height: normal}
+.RLDelete {
+	background: #f00;
+	color: #fff;
+	height: 22px;
+	width: 22px;
+	display: block;
+	border-radius: 3px;
+	text-align: center;
+	margin-right: 15px;
+	opacity: 0.4
+}
+.RLDelete .fa {
+	color: #fff;
+	line-height: 22px;
+	margin: 0;
+	font-size: 15px
+}
+.ProList-div tr:HOVER {
+	background-color: #fff!important
+}
+.ProList-div tr:HOVER .RLDelete {
+	opacity: 1
+}
+.btn-primary {
+	letter-spacing: 1px;
+	font-size: 14px
+}
+._left-filter hr {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+
+
+.CataAddName {
+  padding: 15px 15px 5px 15px;
+  position: relative;
+  background-color: #f6f6f6
+}
+.CataAddName input {
+  box-shadow: none;
+  font-size: 13px;
+  height: 32px;
+  border-color: #eae9e9
+}
+.CataAddName .col-form-label {
+  font-size: 15px;
+  padding: 6px 0 0 0
+}
+.CataAddName .DateIcon {
+  width: 20px;
+  height: auto;
+  margin-top: 6px;
+  margin-right: 10px;
+  float: left
+}
+
+.retailerTable .table img, .ProList-div .table img {
+    width: 35px;
+    height: 35px;
+    border: solid 1px #e0e0e0;
+    margin-top: -5px;
+    margin-bottom: -5px;
+    margin-right: 5px; float: left
+}
+.retailerTable  .table td, .table th {
+  padding: 8px
+}
+.retailerTable .custom-select-tab {
+  border-radius: 0;
+  height: 22px;
+  padding: 0px 5px;
+  font-size: 12px;
+  border: none
+}
+.retailerTable .table thead th {
+  border-bottom: solid 1px #0038ba !important
+}
+.table thead th{
+    border: none !important;
+    background-color: #f6f6f6;
+}
+
+
+
+.Pro-IN {
+  padding-right: 0;
+  padding: 0;
+  display: table;
+}
+.CP-name {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 12px;
+  line-height: 14px
+}
+.ProList-div .Pr_imgV {
+  width: 35px;
+  height: 35px;
+  margin-right: 8px;
+  border: solid 1px #e0e0e0
+}
+
+
+._add-EmpList {
+    display: inline-block;
+    padding: 7px 25px 5px 7px;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-right: 2%;
+    margin-bottom: 7px;
+    line-height: 1;
+    font-size: 12px;
+    letter-spacing: 1px; width: 48%; float: left
+}
+._add-EmpList .close {
+	position: absolute;
+	top: 3px;
+	right: 5px;
+	border: none;
+	outline: none;
+	font-size: 22px
+}
+.assCatalogue-radio{
+background-color:#f6f6f6; padding-top: 5px; padding-bottom: 5px; margin: 0
+}
