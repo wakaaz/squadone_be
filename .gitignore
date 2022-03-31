@@ -7,7 +7,7 @@
 /public/*.pdf
 /public/storage
 /storage/*.key
-/storage/framework/laravel-excel/*
+/storage/framework/*
 /storage/logs/*
 /vendor
 .env
