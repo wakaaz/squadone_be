@@ -69,7 +69,7 @@ class VehiclesController extends Controller
     {
         $main_categories = DB::select("SELECT id , category_name, thumbnail FROM main_categories");
         foreach($main_categories as $main_category){
-            $sub_categories = DB::select("SELECT id , category_name  FROM sub_categories WHERE main_category_id = $main_category->id");
+            $sub_categories = DB::select("SELECT id , category_name,thumbnail  FROM sub_categories WHERE main_category_id = $main_category->id");
             $main_category->sub_categories = $sub_categories;
         }
         return response()->json([
