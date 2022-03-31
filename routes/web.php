@@ -48,7 +48,10 @@ Route::post('/SaveSubCategory/{id?}',  [App\Http\Controllers\CategoriesControlle
 Route::post('/DelSubCat/{id}',  [App\Http\Controllers\CategoriesController::class, 'DelSubCat'])->name('DelSubCat');
 // Route::post('/updateSubCat/{id}',  [App\Http\Controllers\CategoriesController::class, 'updateSubCat'])->name('updateSubCat');
 
-// vehicle managment routes
+// book an appointment
+Route::get('/book-an-appointment',  [App\Http\Controllers\BookAnAppointmentController::class, 'index'])->name('book-an-appointment');
+Route::get('/get-appointment-detail/{id}',  [App\Http\Controllers\BookAnAppointmentController::class, 'show'])->name('get-appointment-detail');
+
 
 
 

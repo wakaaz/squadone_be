@@ -122,6 +122,14 @@
                       </div>
                     </div>
                   </div>
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <label for="" class="col-sm-2 col-form-label">Services Description</label>
+                      <div class="col-sm-10">
+                        <textarea class="proTextarea" style="height:120px" name="services_description" id="services_description">@php if($product){echo $product->services_description;} @endphp</textarea>
+                      </div>
+                    </div>
+                  </div>
                   <div class="col-12 PT-15">
                     <h2 class="_head04 font18 PB-10"> <span>Services</span></h2>
                     <div class="add-property">
@@ -238,6 +246,16 @@
                     <label class="font12 mb-5">Add Default Thumbnail</label>
                     <div class="upload-pic"></div>
                     <input type="file" id="input-file-now" class="dropify" name="default_car_thumbnail" @if($product) data-default-file="@php echo $base_url.$product->default_car_thumbnail; @endphp" @endif />
+                  </div>
+                  <div class="form-wrap p-0">
+                    <label class="font12 mb-5">Add Vehicle Transparent Thumbnail</label>
+                    <div class="upload-pic"></div>
+                    <input type="file" id="input-file-now" class="dropify" name="vehicle_transparent_thumbnail" @if($product) data-default-file="@php echo $base_url.$product->vehicle_transparent_thumbnail; @endphp" @endif />
+                  </div>
+                  <div class="form-wrap p-0">
+                    <label class="font12 mb-5">Vehicle Logo</label>
+                    <div class="upload-pic"></div>
+                    <input type="file" id="input-file-now" class="dropify" name="vehicle_logo" @if($product) data-default-file="@php echo $base_url.$product->vehicle_logo; @endphp" @endif />
                   </div>
                   <div class="form-wrap p-0">
                     <label class="font12 mb-5">Add Hero Image For Mobile</label>
