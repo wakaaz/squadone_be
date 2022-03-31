@@ -19,8 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => 'auth:sanctum'], function(){
-    Route::get("/vehicles",[App\Http\Controllers\VehiclesController::class,'vehicles']);
+    Route::get("/vehicles/{count?}",[App\Http\Controllers\VehiclesController::class,'vehicles']);
     Route::get("/mainCategories",[App\Http\Controllers\VehiclesController::class,'main_categories']);
     Route::get("/subCategories",[App\Http\Controllers\VehiclesController::class,'sub_categories']);
+    Route::get("/vehicle_detail/{id}",[App\Http\Controllers\VehiclesController::class,'vehicle_detail']);
+    Route::get("/main_category_detail/{id}",[App\Http\Controllers\VehiclesController::class,'main_category_detail']);
+    Route::get("/sub_category_detail/{id}",[App\Http\Controllers\VehiclesController::class,'sub_category_detail']);
 });
 Route::post("login",[App\Http\Controllers\UserController::class,'login']);
