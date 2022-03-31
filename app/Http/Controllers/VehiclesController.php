@@ -15,10 +15,10 @@ class VehiclesController extends Controller
 
         $vehicles = [];
         if ($count) {
-            $vehicles = DB::select("SELECT id,vehicle_name,sku,vehicle_transparent_thumbnail,vehicle_logo from vehicles LIMIT " . $count);
+            $vehicles = DB::select("SELECT id,vehicle_name,sku,vehicle_transparent_thumbnail,vehicle_logo,default_car_thumbnail from vehicles LIMIT " . $count);
         }
         if ($count == null) {
-            $vehicles = DB::select("SELECT id,vehicle_name,sku,vehicle_transparent_thumbnail,vehicle_logo from vehicles");
+            $vehicles = DB::select("SELECT id,vehicle_name,sku,vehicle_transparent_thumbnail,vehicle_logo,default_car_thumbnail from vehicles");
         }
         return response()->json([
             "message" => "200",
