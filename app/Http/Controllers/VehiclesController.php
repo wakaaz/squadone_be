@@ -15,11 +15,12 @@ class VehiclesController extends Controller
 
         $vehicles = [];
         if ($count) {
-            $vehicles = DB::select("SELECT id,vehicle_name,sku,default_car_thumbnail from vehicles LIMIT " . $count);
+            $vehicles = DB::select("SELECT id,vehicle_name,sku,default_car_thumbnail,vehicle_logo from vehicles LIMIT " . $count);
         }
         if ($count == null) {
-            $vehicles = DB::select("SELECT id,vehicle_name,sku,default_car_thumbnail from vehicles");
+            $vehicles = DB::select("SELECT id,vehicle_name,sku,default_car_thumbnail,vehicle_logo from vehicles");
         }
+        dd($vehicles);
         return response()->json([
             "message" => "200",
             "data" => $vehicles
@@ -67,7 +68,11 @@ class VehiclesController extends Controller
     }
     public function main_categories()
     {
-        $main_categories = DB::select("SELECT id , category_name FROM main_categories");
+        $main_categories = DB::select("SELECT id , category_name, thumbnail FROM main_categories");
+        foreach($main_categories as $main_category){
+            $sub_categories = DB::select("SELECT id , category_name  FROM sub_categories WHERE main_category_id = $main_category->id");
+            $main_category->sub_categories = $sub_categories;
+        }
         return response()->json([
             "code" => 200,
             "data" => $main_categories

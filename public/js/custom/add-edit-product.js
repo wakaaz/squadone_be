@@ -320,6 +320,8 @@ function submit_form(){
     var h_img_for_tab = $("input[name=h_img_for_tab]")[0].files[0];
     var h_img_for_laptop = $("input[name=h_img_for_laptop]")[0].files[0];
     var bg_thumbnail = $("input[name=bg_thumbnail]")[0].files[0];
+    var vehicle_transparent_thumbnail = $("input[name=vehicle_transparent_thumbnail]")[0].files[0];
+    var vehicle_logo = $("input[name=vehicle_logo]")[0].files[0];
     if(default_car_thumbnail){
         formData.append('default_car_thumbnail', default_car_thumbnail);
     }
@@ -334,6 +336,12 @@ function submit_form(){
     }
     if(bg_thumbnail){
         formData.append('bg_thumbnail', bg_thumbnail);
+    }
+    if(vehicle_transparent_thumbnail){
+        formData.append('vehicle_transparent_thumbnail', vehicle_transparent_thumbnail);
+    }
+    if(vehicle_logo){
+        formData.append('vehicle_logo', vehicle_logo);
     }
     if(imagesDropZone.files.length>0){
         imagesDropZone.files.forEach((x, i)=>{

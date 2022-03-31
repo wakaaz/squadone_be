@@ -35,7 +35,6 @@ class VehicleController extends Controller
         }
         $attributes     = false;
         $base_url       = URL::to('/') . '/';
-
         return view('vehicles.create', compact('product', 'base_url', 'attributes'));
     }
     public function vehicle_images($id)
@@ -82,7 +81,7 @@ class VehicleController extends Controller
                     $filename               =   pathinfo($fullname, PATHINFO_FILENAME);
                     $extension              =   pathinfo($fullname, PATHINFO_EXTENSION);
                     $filename               =   self::media_name($request, $extension, $productKey);
-                    $filename               =   $filename . $fullname;
+                    // $filename               =   $filename.$fullname;
                     $full_path              =   $file->storeAs($path, $filename);
                     $media                  =   new Media();
                     $media->module          =   $module;
@@ -90,8 +89,8 @@ class VehicleController extends Controller
                     $media->module_id       =   $module_id;
                     $media->name            =   $filename;
                     $media->file_name       =   $filename;
-                    $media->file_path       =   $path . '/';
-                    $media->full_path       =   str_replace('public/', 'storage/', $full_path);
+                    $media->file_path       =   $path.'/';
+                    $media->full_path       =   str_replace('public/','storage/',$full_path);
                     $media->file_extension  =   $file->getClientOriginalExtension();
                     $media->mime_type       =   $file->getMimeType();
                     $media->file_size       =   $file->getSize();
@@ -105,8 +104,8 @@ class VehicleController extends Controller
     }
     public function media_name($request, $extension, $productKey)
     {
-        $detail = 'detail';
-        $imageName = $request->vehicle_id . '-' . $detail . '-' . $productKey . rand() . '.' . $extension;
+        $detail = 'vehicle';
+        $imageName =$detail.'-'.rand().'.'.$extension;
         return $imageName;
     }
     public function delete_image($id)
@@ -151,6 +150,7 @@ class VehicleController extends Controller
         $data["vehicle_name"]       =   $request->vehicle_name;
         $data["intro_heading"]      =    $request->intro_heading;
         $data["intro_text"]         =    $request->intro_text;
+        $data["services_description"]         =    $request->services_description;
         $data["services"]           =   $request->key_features;
         $hero_images                   =   new stdClass();
         //product default_thumbnail image upload
@@ -162,6 +162,14 @@ class VehicleController extends Controller
 
         if (isset($request->bg_thumbnail) && $request->file('bg_thumbnail')) {
             $data['bg_thumbnail']    =  self::upload($request->bg_thumbnail, $request);
+        } 
+        // transparent image
+        if (isset($request->vehicle_transparent_thumbnail) && $request->file('vehicle_transparent_thumbnail')) {
+            $data['vehicle_transparent_thumbnail']    =  self::upload($request->vehicle_transparent_thumbnail, $request);
+        } 
+        // logo of vehicle
+        if (isset($request->vehicle_logo) && $request->file('vehicle_logo')) {
+            $data['vehicle_logo']    =  self::upload($request->vehicle_logo, $request);
         } 
         // hero images
         if (isset($request->h_img_for_mobile) && $request->file('h_img_for_mobile')) {
@@ -238,10 +246,8 @@ class VehicleController extends Controller
     }
     public static function image_thumbnail_name($request, $extension)
     {
-        $productName            = str_replace(' ', '-', $request["name"]);
-        $sku                    = $request["sku"];
         $thumbnail              = 'thumbnail';
-        $imageName              = $productName . '-' . $sku . '-' . $thumbnail . '.' . $extension;
+        $imageName              = $thumbnail.rand().'.'. $extension;
         return $imageName;
     }
     public static function delete_vehicle_media(Request $request){

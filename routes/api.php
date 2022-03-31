@@ -27,3 +27,4 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::get("/sub_category_detail/{id}",[App\Http\Controllers\VehiclesController::class,'sub_category_detail']);
 });
 Route::post("login",[App\Http\Controllers\UserController::class,'login']);
+Route::post('/book-an-appointment ',[App\Http\Controllers\BookAnAppointmentController::class, 'store']);
