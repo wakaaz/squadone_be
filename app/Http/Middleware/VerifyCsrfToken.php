@@ -12,6 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+       'https://control.squadone.pk/api/book-appointment'
     ];
 }
