@@ -81,7 +81,6 @@ class VehicleController extends Controller
                     $filename               =   pathinfo($fullname, PATHINFO_FILENAME);
                     $extension              =   pathinfo($fullname, PATHINFO_EXTENSION);
                     $filename               =   self::media_name($request, $extension, $productKey);
-                    // $filename               =   $filename.$fullname;
                     $full_path              =   $file->storeAs($path, $filename);
                     $media                  =   new Media();
                     $media->module          =   $module;

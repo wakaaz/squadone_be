@@ -49,7 +49,7 @@ function set_product_images_area(){
     if(productImages.trim()!=''){
         productImages = JSON.parse(productImages);
         if(productImages.length>0){
-            $.each(productImages, function(k, v){
+            $.each(productImages, function(v,k){
                 var productImage = v;
                 productImage.url = `${base_url}${v.full_path}`;
                 productImage.size = parseInt(v.file_size);

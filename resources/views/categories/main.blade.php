@@ -177,7 +177,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="header">
-                <button type="submit" class="btn add_button" data-toggle="modal" data-target="#exampleModal" style="right: 150px">Set Menu Bar</button>
+            
                 <a class="btn add_button openDataSidebarForAddingMainCat"><i class="fa fa-plus"></i> New Category</a>
                 <h2>Main Services List</h2>
             </div>

@@ -52,6 +52,9 @@ Route::post('/DelSubCat/{id}',  [App\Http\Controllers\CategoriesController::clas
 Route::get('/book-an-appointment',  [App\Http\Controllers\BookAnAppointmentController::class, 'index'])->name('book-an-appointment');
 Route::get('/get-appointment-detail/{id}',  [App\Http\Controllers\BookAnAppointmentController::class, 'show'])->name('get-appointment-detail');
 
+// delete a categoty
+Route::get('/delete_category/{id}',  [App\Http\Controllers\CategoriesController::class, 'delete_category'])->name('delete_category');
+
 
 
 

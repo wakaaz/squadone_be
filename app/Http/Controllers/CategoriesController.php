@@ -20,7 +20,6 @@ class CategoriesController extends Controller
     {
         $base_url   = URL::to('/') . '/';
         $collection = MainCategory::where('status', 1)->orderBy('sequence', 'ASC')->get();
-
         return view('categories.main', compact('base_url', 'collection'));
     }
     public function getMainCategories()
@@ -157,13 +156,13 @@ class CategoriesController extends Controller
                     $sub_cat->thumbnail         =   $imagesArray['thumbnail'];
                 }
                 if ($imagesArray['desktop_background'] != "") {
-                    $sub_cat->desktop_banner    =   $imagesArray['desktop_background'];
+                    $sub_cat->desktop_background    =   $imagesArray['desktop_background'];
                 }
                 if ($imagesArray['mobile_background'] != "") {
-                    $sub_cat->desktop_banner    =   $imagesArray['mobile_background'];
+                    $sub_cat->mobile_background    =   $imagesArray['mobile_background'];
                 }
                 if ($imagesArray['tab_background'] != "") {
-                    $sub_cat->desktop_banner    =   $imagesArray['tab_background'];
+                    $sub_cat->tab_background    =   $imagesArray['tab_background'];
                 }
                 $sub_cat->description           =    json_encode($request->description);
                 $sub_cat->is_active             =    $request->is_active;
@@ -180,11 +179,14 @@ class CategoriesController extends Controller
     }
     public function DelSubCat($id)
     {
-
         if (DB::table('sub_categories')->where('id', $id)->delete()) {
             echo json_encode("success");
             die;
         }
         echo json_encode("failed");
+    }
+    public function delete_category($id){
+        $category = MainCategory::find($id);
+        dd($category);
     }
 }

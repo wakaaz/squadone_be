@@ -274,7 +274,7 @@ $(document).ready(function () {
             $('input[name="seo_meta_keywords"]').text(seo_data.meta_keywords ? seo_data.meta_keywords : "");
             $('input[name="seo_meta_description"]').text(seo_data.meta_description ? seo_data.meta_description : "");
         }
-        console.log(data);
+        
         if(data.services){
             if(data.services != ""){
                 data.services =JSON.parse(data.services);
@@ -819,14 +819,10 @@ $(document).ready(function () {
         var id = $(this).attr('id');
         var thisRef = $(this);
         thisRef.attr('disabled', 'disabled');
-        var url = segments[3] == 'SubCategories' ? '/DelSubCat/' + id : (segments[3] == 'Categories' ? '/DelMain/' + id : (segments[3] == 'attr_assignment' ? '/DelAssignment/' + id : '/DelProperty/' + id));
+        var url = segments[3] == 'SubCategories' ? '/DelSubCat/' + id : (segments[3] == 'Categories' ? '/delete_category/' + id : (segments[3] == 'attr_assignment' ? '/DelAssignment/' + id : '/DelProperty/' + id));
         $.ajax({
-            type: "POST",
+            type: "get",
             url: url,
-            data: {
-                _token: $('meta[name="csrf_token"]').attr('content'),
-            },
-            cache: false,
             success: function (response) {
                 thisRef.removeAttr('disabled');
                 if (response) {
@@ -912,7 +908,7 @@ function fetchSubCategories() {
             var sNo = 1;
             all_sub_cat = response;
             response.forEach(element => {
-                $('.subCatsListTable tbody').append('<tr><td>' + sNo++ + '</td><td><img src="' + 'storage/' +element["thumbnail"] + '" width="30px" height="auto" style="position: absolute; top: 45%;"></td><td>' + element['category_name'] + '</td><td>' + element['main_category'] + '</td><td><button id="' + element['id'] + '" class="btn btn-default btn-line openDataSidebarForUpdateSubCat">Edit</button><button type="button" id="' + element['id'] + '" class="btn btn-default red-bg delete_btn" title="Delete">Delete</button></td></tr>');
+                $('.subCatsListTable tbody').append('<tr><td>' + sNo++ + '</td><td><img src="' + 'storage/' +element["thumbnail"] + '" width="30px" height="auto" style="position: absolute; top: 45%;"></td><td>' + element['category_name'] + '</td><td>' + element.main_category.category_name + '</td><td><button id="' + element['id'] + '" class="btn btn-default btn-line openDataSidebarForUpdateSubCat">Edit</button><button type="button" id="' + element['id'] + '" class="btn btn-default red-bg delete_btn" title="Delete">Delete</button></td></tr>');
             });
             $('#tblLoader').hide();
             $('.body').fadeIn();
