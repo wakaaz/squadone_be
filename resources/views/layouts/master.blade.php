@@ -163,9 +163,9 @@
     <script src="/js/custom.js"></script>
     <script src="/js/jquery.form.min.js"></script>
     <script src="/js/selectize.min.js?v=1.1"></script>
-    <script src="/js/chart.bundle.min.js"></script>
-    <script src="/js/chartjs.js"></script>
-    <script src="js/chartjs-plugin-labels.js"></script>
+    <!-- <script src="/js/chart.bundle.min.js"></script> -->
+    <!-- <script src="/js/chartjs.js"></script> -->
+    <!-- <script src="js/chartjs-plugin-labels.js"></script> -->
     <script src="/js/dashboard-data.js"></script>
     <script src="/js/echarts-en.min.js"></script>
     <script src="/js/echarts-liquidfill.min.js"></script>
