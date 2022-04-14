@@ -92,8 +92,9 @@ class CategoriesController extends Controller
     }
     public function sub_categories_view()
     {
+        $base_url   = URL::to('/') . '/';
         $main = DB::table('main_categories')->get();
-        return view('categories.sub', ['main' => $main]);
+        return view('categories.sub', ['main' => $main,'base_url'=>$base_url]);
     }
 
     public function ListSubCategories()

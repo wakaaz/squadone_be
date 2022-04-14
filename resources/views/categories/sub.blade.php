@@ -11,6 +11,7 @@
 </style>
 @endsection
 @section('data-sidebar')
+<input type="hidden" id="base_url" value="{{$base_url}}">
 <div id="product-cl-sec">
     <a href="javascript:;" id="pl-close" class="close-btn-pl"></a>
     <div class="pro-header-text">New <span>Service</span></div>
