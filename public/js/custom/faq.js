@@ -104,6 +104,25 @@
                         $('#example').find('tbody').append(row);
                     });
                     $('#example').dataTable();
+                }else{
+                    $('#example body').empty();
+                    if ($.fn.DataTable.isDataTable("#example")) {
+                        $('#example').DataTable().clear().destroy();
+                    }
+                    $('#table_body').empty();
+                    var table =`<table class="table table-hover dt-responsive nowrap" id="example" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>FAQ</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                        </tbody>
+                    </table>`;
+                    $('#table_body').html(table);
+                    $('#example').dataTable();
                 }
             }
         })
