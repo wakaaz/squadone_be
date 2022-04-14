@@ -253,18 +253,32 @@ $(document).ready(function () {
         }
         $('#categoryThumbnail').empty();
         $('#categoryThumbnail').html(`<input type="file" id="image_for_sub_category" name="thumbnail" placeholder="Drop Image Here" data-default-file="http://127.0.0.1:8000/${data.thumbnail}">`);
-        $('#image_for_sub_category').dropify(
-            
-        );
+        $('#image_for_sub_category').dropify({
+            messages: {
+                'default': 'Add Thumbnail'
+            }
+        });
         $('#mobile_banner').empty();
         $('#mobile_banner').html(`<input type="file" id="image_for_mobile_banner" name="mobile_background" placeholder="Drop Image Here" data-default-file="http://127.0.0.1:8000/${data.desktop_background}">`);
-        $('#image_for_mobile_banner').dropify();
+        $('#image_for_mobile_banner').dropify({
+            messages: {
+                'default': 'Add Mobile Background'
+            }
+        });
         $('#desktop_banner').empty();
         $('#desktop_banner').html(`<input type="file" id="image_for_desktop_banner" name="desktop_background" placeholder="Drop Image Here" data-default-file="http://127.0.0.1:8000/${data.mobile_background}">`);
-        $('#image_for_desktop_banner').dropify();
+        $('#image_for_desktop_banner').dropify({
+            messages: {
+                'default': 'Add Desktop Background'
+            }
+        });
         $('#tab_banner').empty();
         $('#tab_banner').html(`<input type="file" id="image_for_tab_banner" name="tab_background" placeholder="Drop Image Here" data-default-file="http://127.0.0.1:8000/${data.tab_background}">`);
-        $('#image_for_tab_banner').dropify();
+        $('#image_for_tab_banner').dropify({
+            messages: {
+                'default': 'Add Tab Background'
+            }
+        });
         if(data.seo){
             var seo_data = JSON.parse(data.seo);
             $('input[name="seo_page_title"]').val(seo_data.page_title ? seo_data.page_title : "");
