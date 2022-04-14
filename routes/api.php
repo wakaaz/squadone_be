@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
 Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::get("/vehicles/{count?}",[App\Http\Controllers\VehiclesController::class,'vehicles']);
     Route::get("/mainCategories",[App\Http\Controllers\VehiclesController::class,'main_categories']);
@@ -25,6 +24,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::get("/vehicle_detail/{id}",[App\Http\Controllers\VehiclesController::class,'vehicle_detail']);
     Route::get("/main_category_detail/{id}",[App\Http\Controllers\VehiclesController::class,'main_category_detail']);
     Route::get("/sub_category_detail/{id}",[App\Http\Controllers\VehiclesController::class,'sub_category_detail']);
+    Route::get('/frequently-asked-questions',[App\Http\Controllers\FAQController::class,'faqs']);
 });
 Route::post("login",[App\Http\Controllers\UserController::class,'login']);
 Route::post('/book-appointment ',[App\Http\Controllers\BookAnAppointmentController::class, 'store']);
