@@ -55,6 +55,13 @@ Route::get('/get-appointment-detail/{id}',  [App\Http\Controllers\BookAnAppointm
 // delete a categoty
 Route::get('/delete_category/{id}',  [App\Http\Controllers\CategoriesController::class, 'delete_category'])->name('delete_category');
 
+// frequently asked questions
+Route::get('/frequently-asked-questions', [App\Http\Controllers\FAQController::class,'index'])->name('frequently-asked-questions');
+
+Route::post('/add-frequently-asked-question/{id?}', [App\Http\Controllers\FAQController::class,'store'])->name('frequently-asked-questions');
+Route::get('/get-all-faqs', [App\Http\Controllers\FAQController::class,'faqs'])->name('get-all-faqs');
+Route::get('/get-faq/{id}',[App\Http\Controllers\FAQController::class,'get_faq'])->name('get-faq');
+Route::get('/delete-faq/{id}', [App\Http\Controllers\FAQController::class,'delete_faq'])->name('delete-faq');
 
 
 

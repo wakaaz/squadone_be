@@ -33,8 +33,6 @@ $(document).ready(function () {
     var action = segments[3];
     if (action == "SubCategories") {
         fetchSubCategories();
-
-
     } else if (action == 'Categories') {
         fetchMainCategories();
     } else if (action == 'attr_assignment') {

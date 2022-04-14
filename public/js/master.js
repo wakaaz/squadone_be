@@ -277,6 +277,9 @@ function renderPage() {
     else if (controller == 'CategoriesController') {
         $.getScript("/js/custom/categories/categories.js?v=4.1.1");
     }
+    else if (controller == 'FAQController') {
+        $.getScript("/js/custom/faq.js?v=4.1.1");
+    }
     $('#contentContainerDiv').removeClass('blur-div');
 }
 
@@ -712,10 +715,18 @@ function ajaxer(url, type, payload) {
 function titleCase(str) {
     var splitStr = str.toLowerCase().split(' ');
     for (var i = 0; i < splitStr.length; i++) {
-        // You do not need to check if i is larger than splitStr length, as your for does that for you
-        // Assign it back to the array
         splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
     }
     // Directly return the joined string
     return splitStr.join(' ');
+}
+function notification(type, message) {
+    var bgColor = (type == 'error') ? 'red' : 'green';
+    var el = $('#notifDiv');
+    el.fadeIn();
+    el.css('background', bgColor);
+    el.text(message);
+    setTimeout(() => {
+        el.fadeOut();
+    }, 3000);
 }
