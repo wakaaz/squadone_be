@@ -107,6 +107,7 @@ class CategoriesController extends Controller
     }
     public function StoreSubCat(Request $request , $id=null)
     {
+    //    dd($request->all());
         $imagesArray    =   array("thumbnail" => "", "desktop_background" => "", "mobile_background" => "", "tab_background" => "");
         foreach ($imagesArray as $key => $value) {
             if (isset($request[$key]) && $request->hasFile($key)) {
@@ -148,7 +149,6 @@ class CategoriesController extends Controller
             echo json_encode("failed");
         }
         if ($id) {
-         
             $sub_cat = SubCategory::find($id);
             if ($sub_cat) {
                 $sub_cat->category_name    =   $request->category_name;
@@ -169,7 +169,7 @@ class CategoriesController extends Controller
                 $sub_cat->is_active             =    $request->is_active;
                 $sub_cat->show_images           =    (isset($request->show_images)) ? 1 : 0;
                 $sub_cat->services              =     isset($request->key_features)?json_encode($request->key_features) : null;
-
+               
                 if ($sub_cat->save()) {
                     echo json_encode("success");
                     die;

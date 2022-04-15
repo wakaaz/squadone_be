@@ -219,7 +219,8 @@ $(document).ready(function () {
 
         var id = $(this).attr('id');
         $('input[id="sub_cat_id"]').val(id);
-        var data = all_sub_cat.find(x => x.id == id);
+        var data = JSON.parse(JSON.stringify(all_sub_cat.find(x => x.id == id)));
+        
         $('#dataSidebarLoader').hide();
         $('._cl-bottom').show();
         $('.pc-cartlist').show();
@@ -296,14 +297,14 @@ $(document).ready(function () {
                 data.services.forEach((element,count)=>{
                     html += `<div class="alert fade show alert-color _add-secon" role="alert" id="key-feature-1">${element}
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="remove_key_feature(${count})"> <span aria-hidden="true">×</span> </button>
-                                <input type="hidden" value="ggggg" name="key_features[]" id="key-feature-input-1">
+                                <input type="hidden" value="${element}" name="key_features[]" id="key-feature-input-1">
                                 </div>`;
                    
                 });
                 $('#key-feature-area').empty();
                 $('#key-feature-area').append(html);
             }
-            if(data.services == ""){
+            if(data.services == "" || data.services  == null){
                 $('#key-feature-area').empty();
             }
         }
