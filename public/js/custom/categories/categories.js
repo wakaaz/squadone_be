@@ -220,7 +220,7 @@ $(document).ready(function () {
         var id = $(this).attr('id');
         $('input[id="sub_cat_id"]').val(id);
         var data = JSON.parse(JSON.stringify(all_sub_cat.find(x => x.id == id)));
-        
+
         $('#dataSidebarLoader').hide();
         $('._cl-bottom').show();
         $('.pc-cartlist').show();
@@ -282,29 +282,29 @@ $(document).ready(function () {
                 'default': 'Add Tab Background'
             }
         });
-        if(data.seo){
+        if (data.seo) {
             var seo_data = JSON.parse(data.seo);
             $('input[name="seo_page_title"]').val(seo_data.page_title ? seo_data.page_title : "");
             $('input[name="seo_meta_tag_name"]').val(seo_data.meta_tag_name ? seo_data.meta_tag_name : "");
             $('input[name="seo_meta_keywords"]').text(seo_data.meta_keywords ? seo_data.meta_keywords : "");
             $('input[name="seo_meta_description"]').text(seo_data.meta_description ? seo_data.meta_description : "");
         }
-        
-        if(data.services){
-            if(data.services != ""){
-                data.services =JSON.parse(data.services);
+
+        if (data.services) {
+            if (data.services != "") {
+                data.services = JSON.parse(data.services);
                 var html = "";
-                data.services.forEach((element,count)=>{
+                data.services.forEach((element, count) => {
                     html += `<div class="alert fade show alert-color _add-secon" role="alert" id="key-feature-1">${element}
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="remove_key_feature(${count})"> <span aria-hidden="true">×</span> </button>
                                 <input type="hidden" value="${element}" name="key_features[]" id="key-feature-input-1">
                                 </div>`;
-                   
+
                 });
                 $('#key-feature-area').empty();
                 $('#key-feature-area').append(html);
             }
-            if(data.services == "" || data.services  == null){
+            if (data.services == "" || data.services == null) {
                 $('#key-feature-area').empty();
             }
         }
@@ -320,7 +320,7 @@ $(document).ready(function () {
 
         $('#mobile_banner').empty()
         $('#mobile_banner').append('<input type="file" name="mobile_banner" id="m_banner" />');
-        
+
         $('#tab_banner').empty()
         $('#tab_banner').append('<input type="file" name="tab_banner" id="t_banner" />');
 
@@ -825,14 +825,14 @@ $(document).ready(function () {
 
 
 
-    $(document).on('click', '.delete_btn', function () {
-        var id = $(this).attr('id');
-        glob_type = $(this).attr('name');
-        $('.confirm_delete').attr('id', id);
-        $('.confirm_delete').attr('name', glob_type);
-        deleteRef = $(this);
-        $('#hidden_btn_to_open_modal').click();
-    });
+    // $(document).on('click', '.delete_btn', function () {
+    //     var id = $(this).attr('id');
+    //     glob_type = $(this).attr('name');
+    //     $('.confirm_delete').attr('id', id);
+    //     $('.confirm_delete').attr('name', glob_type);
+    //     deleteRef = $(this);
+    //     $('#hidden_btn_to_open_modal').click();
+    // });
 
     $(document).on('click', '.confirm_delete', function () {
         var id = $(this).attr('id');
@@ -881,11 +881,11 @@ function fetchMainCategories() {
             all_main_cat = response;
             var base_url = $("#base_url").val();
             response.forEach(element => {
-                var ImageHTMl   = '';
+                var ImageHTMl = '';
                 if (element.thumbnail) {
-                    ImageHTMl   = `<img src="${base_url + element.thumbnail}" width="50">`;
+                    ImageHTMl = `<img src="${base_url + element.thumbnail}" width="50">`;
                 }
-                var text        = element.status ? 'Deactive' : 'Active';
+                var text = element.status ? 'Deactive' : 'Active';
                 $('.mainCatsListTable tbody').append('<tr><td>' + sNo++ + '</td><td>' + ImageHTMl + '</td><td>' + element['category_name'] + '</td><td><button type="button" id="category-status-btn-' + element['id'] + '" class="btn btn-default btn-line" onclick="change_category_status(' + element.id + ')">' + text + '</button><button id="' + element['id'] + '" class="btn btn-default btn-line openDataSidebarForUpdateMainCat">Edit</button><button type="button" id="' + element['id'] + '" class="btn btn-default red-bg delete_btn" title="Delete">Delete</button></td></tr>');
             });
             $('#tblLoader').hide();
@@ -922,12 +922,12 @@ function fetchSubCategories() {
         url: '/GetSubCategories',
         success: function (response) {
             $('.body').empty();
-            $('.body').append('<table class="table table-hover dt-responsive nowrap subCatsListTable" style="width:100%;"><thead><tr><th>S.No</th><th>Logo</th><th>Category</th><th>Main Category</th><th>Action</th></tr></thead><tbody></tbody></table>');
+            $('.body').append('<table class="table table-hover dt-responsive nowrap subCatsListTable" style="width:100%;"><thead><tr><th>S.No</th><th>Category</th><th>Main Category</th><th>Action</th></tr></thead><tbody></tbody></table>');
             $('.subCatsListTable tbody').empty();
             var sNo = 1;
             all_sub_cat = response;
             response.forEach(element => {
-                $('.subCatsListTable tbody').append('<tr><td>' + sNo++ + '</td><td><img src="' + 'storage/' +element["thumbnail"] + '" width="30px" height="auto" style="position: absolute; top: 45%;"></td><td>' + element['category_name'] + '</td><td>' + element.main_category.category_name + '</td><td><button id="' + element['id'] + '" class="btn btn-default btn-line openDataSidebarForUpdateSubCat">Edit</button><button type="button" id="' + element['id'] + '" class="btn btn-default red-bg delete_btn" title="Delete">Delete</button></td></tr>');
+                $('.subCatsListTable tbody').append('<tr><td>' + sNo++ + '</td><td>' + element['category_name'] + '</td><td>' + element.main_category.category_name + '</td><td><button id="' + element['id'] + '" class="btn btn-default btn-line openDataSidebarForUpdateSubCat">Edit</button><button type="button" id="' + element['id'] + '" class="btn btn-default red-bg delete_btn" title="Delete">Delete</button></td></tr>');
             });
             $('#tblLoader').hide();
             $('.body').fadeIn();
@@ -1053,7 +1053,7 @@ $(document).ready(function () {
 });
 
 $('#image_for_sub_category').dropify();
-function add_key_feature(){
+function add_key_feature() {
     var counter, html, el, input;
     el = $("#key-feature-counter");
     input = $("#key-feature-input");
@@ -1063,9 +1063,9 @@ function add_key_feature(){
         <input type="hidden" value="${input.val()}" name="key_features[]" id="key-feature-input-${counter}">
     </div>`;
     $(`#key-feature-area`).append(html);
-    el.val(counter+1);
+    el.val(counter + 1);
     input.val('');
 }
-function remove_key_feature(id){
+function remove_key_feature(id) {
     $(`#key-feature-${id}`).remove();
 }

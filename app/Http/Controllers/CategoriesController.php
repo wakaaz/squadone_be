@@ -18,8 +18,8 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        $base_url   = URL::to('/') . '/';
-        $collection = MainCategory::where('status', 1)->orderBy('sequence', 'ASC')->get();
+        $base_url       =   URL::to('/') . '/';
+        $collection     =   MainCategory::where('status', 1)->orderBy('sequence', 'ASC')->get();
         return view('categories.main', compact('base_url', 'collection'));
     }
     public function getMainCategories()
