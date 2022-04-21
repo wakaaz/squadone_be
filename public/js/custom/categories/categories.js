@@ -243,7 +243,7 @@ $(document).ready(function () {
         $(`input[name=is_active][value='${data.is_active}']`).prop("checked", true);
         var descriptionHtml = '<p></p>';
         if (data.description) {
-            descriptionHtml = JSON.parse(data.description);
+            descriptionHtml = data.description;
         }
         $('#SubCategorySummernote').val(descriptionHtml);
 
@@ -400,7 +400,7 @@ $(document).ready(function () {
 
         var descriptionHtml = '<p></p>';
         if (data.description) {
-            descriptionHtml = JSON.parse(data.description);
+            descriptionHtml = data.description;
         }
         $('#CategorySummernote').val(descriptionHtml);
 

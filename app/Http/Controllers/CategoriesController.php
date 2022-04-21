@@ -81,7 +81,7 @@ class CategoriesController extends Controller
                 if ($imagesArray['tab_banner'] != "") {
                     $main_cat->desktop_banner    =   $imagesArray['tab_banner'];
                 }
-                $main_cat->description           =    json_encode($request->description);
+                $main_cat->description           =    $request->description;
                 if ($main_cat->save()) {
                     echo json_encode("success");
                     die;
@@ -134,7 +134,7 @@ class CategoriesController extends Controller
                 'seo'                           =>  $seo,
                 'title_tag'                     =>  $request->title_tag,
                 'main_category_id'              =>  $request->main_category_id,
-                'description'                   =>  json_encode($request->description),
+                'description'                   =>  $request->description,
                 'is_active'                     =>  $request->is_active,
                 'show_images'                   => (isset($request->show_images)) ? 1 : 0,
                 'thumbnail'                     =>  $imagesArray['thumbnail'],
@@ -165,7 +165,7 @@ class CategoriesController extends Controller
                 if ($imagesArray['tab_background'] != "") {
                     $sub_cat->tab_background    =   $imagesArray['tab_background'];
                 }
-                $sub_cat->description           =    json_encode($request->description);
+                $sub_cat->description           =    $request->description;
                 $sub_cat->is_active             =    $request->is_active;
                 $sub_cat->show_images           =    (isset($request->show_images)) ? 1 : 0;
                 $sub_cat->services              =     isset($request->key_features)?json_encode($request->key_features) : null;
