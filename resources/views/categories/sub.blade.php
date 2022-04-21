@@ -104,7 +104,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 mt-20">
-                                                    <label class="control-label mb-10">Description</label>
+                                                    <label class="font12 mb-5">Description</label>
                                                     <textarea id="SubCategorySummernote" cols="30" rows="10" name="description"></textarea>
                                                 </div>
                                                 <div class="row m-0 mt-30 col-12">

@@ -100,7 +100,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <label class="control-label mb-10">Description</label>
+                                                    <label class="font12 mb-5">Description</label>
                                                     <textarea id="CategorySummernote" cols="30" rows="10" name="description"></textarea>
                                                 </div>
                                             </div>

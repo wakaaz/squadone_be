@@ -79,30 +79,37 @@ class VehiclesController extends Controller
     }
     public function main_category_detail($id){
         $main_category = MainCategory::with('sub_category')->find($id);
-        unset( $main_category->thumbnail_background_color);
-        unset( $main_category->ebrochure);
-        unset( $main_category->status);
-        unset( $main_category->sequence);
-        unset( $main_category->updated_at);
-        if(collect($main_category->sub_category)->count() > 0){
-            foreach($main_category->sub_category as $sub_category){
-                unset($sub_category->is_active);
-                unset($sub_category->updated_at);
-                unset($sub_category->main_category_id);
-                unset($sub_category->description);
-                unset($sub_category->show_images);
-                unset($sub_category->seo);
-                unset($sub_category->desktop_background);
-                unset($sub_category->mobile_background);
-                unset($sub_category->tab_background);
-                unset($sub_category->services);
-                unset($sub_category->thumbnail);
+        if($main_category){
+            unset( $main_category->thumbnail_background_color);
+            unset( $main_category->ebrochure);
+            unset( $main_category->status);
+            unset( $main_category->sequence);
+            unset( $main_category->updated_at);
+            if(collect($main_category->sub_category)->count() > 0){
+                foreach($main_category->sub_category as $sub_category){
+                    unset($sub_category->is_active);
+                    unset($sub_category->updated_at);
+                    unset($sub_category->main_category_id);
+                    unset($sub_category->description);
+                    unset($sub_category->show_images);
+                    unset($sub_category->seo);
+                    unset($sub_category->desktop_background);
+                    unset($sub_category->mobile_background);
+                    unset($sub_category->tab_background);
+                    unset($sub_category->services);
+                    unset($sub_category->thumbnail);
+                }
             }
+            return response()->json([
+                "code" => 200,
+                "data" => $main_category
+            ]);
         }
         return response()->json([
-            "code" => 200,
-            "data" => $main_category
+            "code" => 202,
+            "data" => "No category Found With This Id."
         ]);
+       
     }
     public function sub_categories()
     {

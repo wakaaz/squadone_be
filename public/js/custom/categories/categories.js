@@ -116,7 +116,7 @@ $(document).ready(function () {
         // $('[name="sub_cat_property"]').val('-1').trigger('change');
         // $('[name="sub_cat_attribute"]').val('-1').trigger('change');
 
-        $('#SubCategorySummernote').summernote('code', ``);
+        // $('#SubCategorySummernote').summernote('code', ``);
 
         $('input[id="operation"]').val('add');
         openSidebar();
@@ -170,9 +170,7 @@ $(document).ready(function () {
                 'default': 'Add Tab Background'
             }
         });
-
-
-        $('#CategorySummernote').summernote('code', ``);
+        $('#CategorySummernote').val('');
 
         openSidebar();
     });
@@ -202,7 +200,7 @@ $(document).ready(function () {
             // $('select[name="placement_id"]').val(0).trigger('change');
         }
         lastOp = 'add';
-        $('#PropertyDescription').summernote('code', ``);
+        // $('#PropertyDescription').summernote('code', ``);
         $('input[id="operation"]').val('add');
         openSidebar();
     });
@@ -247,7 +245,7 @@ $(document).ready(function () {
         if (data.description) {
             descriptionHtml = JSON.parse(data.description);
         }
-        $('#SubCategorySummernote').summernote('code', `${descriptionHtml}`);
+        $('#SubCategorySummernote').val(descriptionHtml);
 
         $('#show_images').prop('checked', false);
         if (data.show_images) {
@@ -404,7 +402,7 @@ $(document).ready(function () {
         if (data.description) {
             descriptionHtml = JSON.parse(data.description);
         }
-        $('#CategorySummernote').summernote('code', `${descriptionHtml}`);
+        $('#CategorySummernote').val(descriptionHtml);
 
         openSidebar();
     });
@@ -456,7 +454,7 @@ $(document).ready(function () {
         if (data.description) {
             descriptionHtml = JSON.parse(data.description);
         }
-        $('#PropertyDescription').summernote('code', `${descriptionHtml}`);
+        $('#PropertyDescription').val(descriptionHtml);
 
         $('#IconArea').empty();
         $('#IconArea').html(`<label class="font12 mb-5">Add Picture</label>
@@ -1047,9 +1045,9 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-    $('#CategorySummernote').summernote(SummerNoteSetting);
-    $('#SubCategorySummernote').summernote(SummerNoteSetting);
-    $('#PropertyDescription').summernote(SummerNoteSetting);
+    // $('#CategorySummernote').summernote(SummerNoteSetting);
+    // $('#SubCategorySummernote').summernote(SummerNoteSetting);
+    // $('#PropertyDescription').summernote(SummerNoteSetting);
 });
 
 $('#image_for_sub_category').dropify();
