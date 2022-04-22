@@ -282,10 +282,11 @@ $(document).ready(function () {
         });
         if (data.seo) {
             var seo_data = JSON.parse(data.seo);
+            console.log(seo_data);
             $('input[name="seo_page_title"]').val(seo_data.page_title ? seo_data.page_title : "");
             $('input[name="seo_meta_tag_name"]').val(seo_data.meta_tag_name ? seo_data.meta_tag_name : "");
-            $('input[name="seo_meta_keywords"]').text(seo_data.meta_keywords ? seo_data.meta_keywords : "");
-            $('input[name="seo_meta_description"]').text(seo_data.meta_description ? seo_data.meta_description : "");
+            $('#seo_meta_keywords').val(seo_data.meta_keywords ? seo_data.meta_keywords : '');
+            $('#seo_meta_description').val(seo_data.meta_description ? seo_data.meta_description : '');
         }
 
         if (data.services) {
